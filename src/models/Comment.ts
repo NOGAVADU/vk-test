@@ -1,4 +1,5 @@
-interface IComment {
+export interface IComment {
+    deleted?: boolean,
     id: number,
     by: string,
     kids?: number[],

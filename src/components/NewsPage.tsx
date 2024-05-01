@@ -4,7 +4,7 @@ import {
     Div, Footnote, Group,
     Headline, IconButton, Link,
     NavIdProps,
-    Panel, Paragraph, Spinner,
+    Panel, PanelHeader, Paragraph, Spinner,
     Title
 } from "@vkontakte/vkui";
 import {INews} from "../models/News.ts";
@@ -13,6 +13,7 @@ import {getItemById, getItemComments} from "../api/newsApi.ts";
 import {Icon12Like, Icon12Switch, Icon16Comment, Icon24Back} from "@vkontakte/icons";
 import {getDate} from "../utils/transformDate.ts";
 import Comment from "./Comment.tsx";
+import {IComment} from "../models/Comment.ts";
 
 const header = {
     display: 'flex',
@@ -81,6 +82,7 @@ const NewsPage: FC<NavIdProps> = ({id}) => {
 
     return (
         <Panel id={id}>
+            <PanelHeader>Тестовое задание Frontend</PanelHeader>
             <IconButton label='Вернуться назад' onClick={goBack}><Icon24Back/></IconButton>
             {fetchedNews ?
                 <Group>

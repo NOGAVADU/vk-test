@@ -1,5 +1,6 @@
 import {makeRequest} from "./index.ts";
 import {INews} from "../models/News.ts";
+import {IComment} from "../models/Comment.ts";
 
 export const getItemById = async (id: number) => makeRequest('get', `item/${id}`)
 export const getActualNewsIds = async (): Promise<number[]> => makeRequest('get', 'newstories')
@@ -11,6 +12,6 @@ export const getActualNews = async (limit: number): Promise<INews[]> => {
 }
 export const getItemComments = async (commentsId: number[]): Promise<IComment[]> => {
     const commentsPromises = commentsId.map(id => getItemById(id))
-    return Promise.all(commentsPromises)
+    return Promise.all(commentsPromises).then((comments: IComment[]) => comments.filter(comment => !comment.deleted))
 }
 

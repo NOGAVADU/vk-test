@@ -4,7 +4,7 @@ import {
     Div,
     Group,
     NavIdProps,
-    Panel, Spinner,
+    Panel, PanelHeader, Spinner,
     Title
 } from "@vkontakte/vkui";
 import {INews} from "../models/News.ts";
@@ -25,6 +25,7 @@ const header = {
 const Main: FC<MainProps> = ({id, fetchedNews, loading, fetchNews}) => {
     return (
         <Panel id={id}>
+            <PanelHeader>Тестовое задание Frontend</PanelHeader>
             <Group
                 header={
                     <Div>

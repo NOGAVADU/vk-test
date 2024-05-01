@@ -2,6 +2,7 @@ import {FC, useState} from 'react';
 import {Button,Counter, Group} from "@vkontakte/vkui";
 import CommentCard from "./CommentCard.tsx";
 import {getItemComments} from "../api/newsApi.ts";
+import {IComment} from "../models/Comment.ts";
 
 export interface CommentProps {
     by: string,
